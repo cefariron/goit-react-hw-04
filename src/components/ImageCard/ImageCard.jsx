@@ -1,10 +1,20 @@
+export function ImageCard({ item, onClick }) {
+  const handleImageClick = () => {
+    if (onClick) {
+      onClick(item);
+    }
+  };
 
-
-export function ImageCard () {
-
-    return (
-      <>
-        <div></div>
-      </>
-    )
-  }
+  return (
+    <div>
+      <a onClick={handleImageClick}>
+        <img
+          src={item.urls.small}
+          alt={item.alt_description}
+          width="300"
+          height="240"
+        />
+      </a>
+    </div>
+  );
+}

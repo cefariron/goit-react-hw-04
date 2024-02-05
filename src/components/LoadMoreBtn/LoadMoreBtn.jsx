@@ -1,10 +1,10 @@
 
 
-export function LoadMoreBtn () {
-
+  export const LoadMoreBtn = ({ children, onClick, disabled }) => {
     return (
-      <>
-        <div></div>
-      </>
-    )
-  }
+      <button onClick={onClick} disabled={disabled}>
+        {children}
+      </button>
+    );
+  };
+  

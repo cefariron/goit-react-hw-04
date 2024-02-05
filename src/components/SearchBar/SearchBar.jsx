@@ -1,4 +1,5 @@
 import { useState } from "react";
+import css from './SearchBar.module.css';
 
 export function SearchBar({ onSubmit }) {
   const [query, setQuery] = useState("");
@@ -9,26 +10,26 @@ export function SearchBar({ onSubmit }) {
     setQuery("");
   };
 
-  const handleInputChange = e => {
+  const handleInputChange = (e) => {
     setQuery(e.target.value);
-  }
+  };
 
   return (
     <>
-      <div>
-        <form onSubmit={goSearch}>
-          <input
-            type="text"
-            value={query}
-            onChange={handleInputChange}
-            placeholder="Type your request"
-            name="search"
-            required
-            autoFocus
-          />
-          <button type="submit">Search</button>
-        </form>
-      </div>
+        <header className={css.header}>
+          <form className={css.form} onSubmit={goSearch}>
+            <input
+              type="text"
+              value={query}
+              onChange={handleInputChange}
+              placeholder="Search images and photos"
+              name="search"
+              autoFocus
+              autoComplete="off"
+            />
+            <button type="submit">Search</button>
+          </form>
+        </header>
     </>
   );
 }

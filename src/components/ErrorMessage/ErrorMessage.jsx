@@ -1,10 +1,7 @@
-
-
-export function ErrorMessage () {
-
-    return (
-      <>
-        <div></div>
-      </>
-    )
-  }
+export function ErrorMessage({ children }) {
+  return (
+    <>
+      <p>{children}</p>
+    </>
+  );
+}
