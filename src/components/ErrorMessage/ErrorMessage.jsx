@@ -1,7 +1,11 @@
+import css from "../ErrorMessage/ErrorMessage.module.css";
+
 export function ErrorMessage({ children }) {
   return (
     <>
-      <p>{children}</p>
+      <div className={css.container}>
+        <p className={css.text}>{children}</p>
+      </div>
     </>
   );
 }

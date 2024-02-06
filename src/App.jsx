@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Puff } from "react-loader-spinner";
 import { SearchBar } from "./components/SearchBar/SearchBar";
 import { getPhotos } from "./api/apiservise";
 import { ImageGallery } from "./components/ImageGallery/ImageGallery";
@@ -9,6 +8,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { IoMdCloseCircle } from "react-icons/io";
 import Modal from "react-modal";
 import css from "./App.module.css";
+import { Loader } from "./components/Loader/Loader";
 
 const customStyles = {
   overlay: {
@@ -90,8 +90,8 @@ export function App() {
   return (
     <>
       <SearchBar onSubmit={handleSubmit} />
-      <div className={css.loader}>{loader && <Puff color="green" />}</div>
-      {!query && <Toaster />}
+      {loader && <Loader />}
+      {!query && <Toaster position="top-right" reverseOrder={false} />}
       {!images.length && query !== "" && !error && !loader && (
         <ErrorMessage textAlign="center">
           Images with {query} request not find!

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { IoMdSearch } from "react-icons/io";
 import css from './SearchBar.module.css';
 
 export function SearchBar({ onSubmit }) {
@@ -19,6 +20,7 @@ export function SearchBar({ onSubmit }) {
         <header className={css.header}>
           <form className={css.form} onSubmit={goSearch}>
             <input
+            className={css.input}
               type="text"
               value={query}
               onChange={handleInputChange}
@@ -27,7 +29,9 @@ export function SearchBar({ onSubmit }) {
               autoFocus
               autoComplete="off"
             />
-            <button type="submit">Search</button>
+            <button className={css.btn} type="submit">
+            <IoMdSearch className={css.icon}/>
+            </button>
           </form>
         </header>
     </>
